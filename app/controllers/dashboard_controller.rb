@@ -8,9 +8,10 @@ class DashboardController < ApplicationController
   end
 
   def all_report
+    @users = User.all
     respond_to do |format|
       format.csv do
-        render text: User.to_csv
+        send_data User.to_csv, filename: 'users_report.csv', disposition: 'download'
       end
       format.html do
       end

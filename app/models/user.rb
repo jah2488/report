@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
+  def self.attributes
+    new.attributes.keys
+  end
+
   def self.to_csv
     CSV.generate do |csv|
       csv << User.new.attributes.keys
