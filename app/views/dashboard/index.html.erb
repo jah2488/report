@@ -1,0 +1,24 @@
+<h1><%= @title %></h1>
+
+<%= link_to "Reports", reports_path %>
+<hr>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <h4><%= user.full_name %></h4>
+      <strong>Meals</strong>
+      <ul>
+        <% user.meals.each do |meal| %>
+          <li> <%= meal.name %> </li>
+        <% end %>
+      </ul>
+      <strong>Pets</strong>
+      <ul>
+        <% user.pets.each do |pet| %>
+          <li> <%= pet.name %> </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
