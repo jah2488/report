@@ -43,10 +43,13 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
 
 gem 'kaminari'
 gem 'puma'
-gem 'rails_12factor'
+
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'figaro'
@@ -56,6 +59,9 @@ group :test, :development do
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'simplecov'
 end
 
 gem 'bootstrap-sass'
