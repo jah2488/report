@@ -11,14 +11,23 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
-  def self.attributes
-    new.attributes.keys
+  def report_values
+    report_attributes.values
+  end
+
+  def self.report_columns
+    new.report_attributes.keys.map(&:to_s)
+  end
+
+  def report_attributes
+    Hash[%w(first_name last_name favorite_color age).zip(
+           [first_name, last_name, favorite_color, age])]
   end
 
   def self.to_csv
     CSV.generate do |csv|
-      csv << User.new.attributes.keys
-      User.all.each do |user|
+      csv << column_names
+      all.each do |user|
         csv << user.attributes.values
       end
     end

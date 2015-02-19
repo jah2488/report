@@ -1,20 +1,2 @@
-<h1> All Users Report </h1>
-<hr>
-<table class='table table-striped table-bordered table-hover'>
-  <thead>
-    <tr>
-      <% User.attributes.each do |attr| %>
-        <th><%= attr.titleize %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <% user.attributes.values.each do |val| %>
-        <td><%= val %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</tbody>
-</table>
+<%= render partial: 'table', locals: { records: @users, type: User, title: 'All Users Report' } %>
+<%= render partial: 'table', locals: { records: @pets, type: Pet, title: 'All Pets' } %>
