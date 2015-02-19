@@ -119,6 +119,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pdfkit (0.6.2)
     pg (0.18.1)
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
@@ -219,6 +220,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   paperclip (~> 4.2)
+  pdfkit
   pg
   puma
   quiet_assets

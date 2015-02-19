@@ -15,8 +15,10 @@ class DashboardController < ApplicationController
         send_data User.to_csv, filename: 'users_report.csv', disposition: 'download'
       end
       format.html do
+        render layout: 'pdf'
       end
       format.pdf do
+        send_data PDFKit.new(all_report_url(format: 'html')), filename: 'all_report.pdf'
       end
     end
   end
